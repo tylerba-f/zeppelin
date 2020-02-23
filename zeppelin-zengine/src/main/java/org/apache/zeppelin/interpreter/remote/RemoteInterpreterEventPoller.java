@@ -264,6 +264,10 @@ public class RemoteInterpreterEventPoller extends Thread {
       //Close thread pool
       appendService.shutdown();
 
+      //release object
+      interpreterProcess = null;
+      interpreterGroup = null;
+
     }
   }
 

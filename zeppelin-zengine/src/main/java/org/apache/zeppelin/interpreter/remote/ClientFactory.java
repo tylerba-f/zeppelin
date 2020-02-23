@@ -49,6 +49,10 @@ public class ClientFactory extends BasePooledObjectFactory<Client>{
     for (TSocket eachTransfer: clientSocketMap.values()) {
       eachTransfer.close();
     }
+
+    //release object
+    clientSocketMap.clear();
+    clientSocketMap = null;
   }
 
   @Override

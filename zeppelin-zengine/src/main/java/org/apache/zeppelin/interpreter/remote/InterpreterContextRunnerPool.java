@@ -61,6 +61,13 @@ public class InterpreterContextRunnerPool {
     }
   }
 
+
+  public void clear() {
+    for (String eachNodId : interpreterContextRunners.keySet()) {
+      interpreterContextRunners.remove(eachNodId);
+    }
+  }
+
   public void clear(String noteId) {
     synchronized (interpreterContextRunners) {
       interpreterContextRunners.remove(noteId);

@@ -57,6 +57,16 @@ public abstract class RemoteInterpreterProcess implements InterpreterClient {
     if (clientFactory != null) {
       clientFactory.close();
     }
+
+
+    // relase memory
+    clientFactory = null;
+    clientPool.clear();
+    clientPool.close();
+    clientPool = null;
+    remoteInterpreterEventPoller.shutdown();
+    remoteInterpreterEventPoller = null;
+    interpreterContextRunnerPool.clear();
   }
 
   public int getConnectTimeout() {

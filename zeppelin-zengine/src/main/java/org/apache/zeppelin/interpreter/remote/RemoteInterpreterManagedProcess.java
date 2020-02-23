@@ -239,6 +239,14 @@ public class RemoteInterpreterManagedProcess extends RemoteInterpreterProcess
     executor = null;
     watchdog = null;
     running.set(false);
+
+
+    // release memory
+    callbackServer.stop();
+    callbackServer = null;
+
+
+
     logger.info("Remote process terminated");
   }
 
